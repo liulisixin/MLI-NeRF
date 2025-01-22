@@ -1,0 +1,64 @@
+_parent_: projects/neuralangelo/configs/base.yaml
+
+max_iter: 500000
+
+wandb_scalar_iter: 100
+wandb_image_iter: 10000
+validation_iter: 10000
+checkpoint:
+    save_iter: 100000
+
+trainer:
+    type: projects.NeuralLumen.trainer
+data:
+    readjust:
+        center:
+        - 0.0
+        - 0.0
+        - 0.0
+        scale: 1.0
+    root: /ghome/yyang/dataset/NRHints/Pikachu
+    train:
+        annotation: /ghome/yyang/dataset/NRHints/Pikachu/transforms_train.json
+        batch_size: 1
+        image_size:
+        - 512
+        - 512
+        load_iid: False
+    type: projects.NeuralLumen.data_blender
+    data_source: NRHints
+    white_background: False
+    preload: True
+    val:
+        annotation: /ghome/yyang/dataset/NRHints/Pikachu/transforms_val.json
+        batch_size: 1
+        subset: 3
+        image_size:
+        - 512
+        - 512
+        load_iid: False
+    bounding_type: "unit_sphere"   # or "unit_sphere"
+model:
+    type: projects.NeuralLumen.model
+    appear_embed:
+        enabled: false
+    object:
+        sdf:
+            encoding:
+                coarse2fine:
+                    init_active_level: 8
+            mlp:
+                inside_out: false
+    light_visibility:
+        enabled: False
+        camera_ray_type: blend_z_sphere_tracing   #  sphere_tracing    blend_z
+        type: sphere_tracing
+        visibility_bounding_type: sphere   # or "box"
+        visibility_sphere_radius: 0.95
+    background:
+        enabled: False
+        white: False
+    render:
+        rand_rays: 2048
+        rand_rays_val: 4096
+    create_semi_sphere: false

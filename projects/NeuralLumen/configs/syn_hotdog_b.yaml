@@ -1,0 +1,91 @@
+_parent_: projects/neuralangelo/configs/base.yaml
+trainer:
+    type: projects.NeuralLumen.trainer
+    loss_weight:
+        render: 1.0
+        eikonal: 0.1
+        curvature: 5e-4
+        intrinsic: 1.0
+        regularize_re: 1.0
+    para_intrinsic_loss:
+        weight_map_range_shading:
+            - 0.0
+            - 1.0
+        weight_map_range_visibility:
+            - 0.0
+            - 1.0
+        factor_ref: 1.0
+        factor_sha: 1.0
+    para_regularize_re_loss:
+        factor_negative: 10.0
+        factor_positive: 1.0
+        exponent_positive: 1.0
+    weighted_shading_weight_range:
+        - 0.1
+        - 1.0
+    partial_grad:
+        - neural_rgb
+data:
+    readjust:
+        center:
+        - 0.0
+        - 0.0
+        - 0.0
+        scale: 1.0
+    root: /ghome/yyang/dataset/Relighting_intrinsic/hotdog_intrinsic
+    train:
+        annotation: /ghome/yyang/dataset/Relighting_intrinsic/hotdog_intrinsic/transforms_train.json
+        batch_size: 1
+        image_size:
+        - 512
+        - 512
+        load_iid: False
+        pseudo_label:
+            enabled: True
+            pt_file: /ghome/yyang/PycharmProjects/neuralangelo/logs/syn_hotdog_a/output_unpairlights_pseudo_label/pseudo_label_all.pt
+    type: projects.NeuralLumen.data_blender
+    white_background: True
+    preload: True
+    val:
+        annotation: /ghome/yyang/dataset/Relighting_intrinsic/hotdog_intrinsic/transforms_val.json
+        batch_size: 1
+        subset: 3
+        image_size:
+        - 512
+        - 512
+        load_iid: True
+    bounding_type: "unit_sphere"   # or "unit_sphere"
+model:
+    type: projects.NeuralLumen.model
+    appear_embed:
+        enabled: false
+    object:
+        sdf:
+            encoding:
+                coarse2fine:
+                    enabled: False
+                    init_active_level: 8
+            mlp:
+                inside_out: false
+        rgb:
+            network_mode: 'rgb_r_s'
+            shading_dim: 1
+    light_visibility:
+        enabled: False
+        camera_ray_type: blend_z_sphere_tracing   #  sphere_tracing    blend_z
+        type: sphere_tracing
+        visibility_bounding_type: sphere   # or "box"
+        visibility_sphere_radius: 0.95
+    background:
+        enabled: False
+        white: True
+    render:
+        rand_rays: 2048
+        rand_rays_val: 20000
+    create_semi_sphere: false
+    use_pre_trained:
+        pt_filename: logs/syn_hotdog_a/epoch_01000_iteration_000500000_checkpoint.pt
+
+optim:
+    partial_training:
+        - neural_rgb

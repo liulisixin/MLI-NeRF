@@ -1,0 +1,101 @@
+_parent_: projects/neuralangelo/configs/base.yaml
+trainer:
+    type: projects.NeuralLumen.trainer
+    loss_weight:
+        render: 1.0
+        eikonal: 0.1
+        curvature: 5e-4
+        intrinsic: 1.0
+        regularize_re: 1.0
+    para_intrinsic_loss:
+        weight_map_range_shading:
+            - 0.0
+            - 1.0
+        weight_map_range_visibility:
+            - 0.0
+            - 1.0
+        factor_ref: 1.0
+        factor_sha: 1.0
+    para_regularize_re_loss:
+        factor_negative: 10.0
+        factor_positive: 1.0
+        exponent_positive: 1.0
+    weighted_shading_weight_range:
+        - 0.1
+        - 1.0
+    partial_grad:
+        - neural_rgb
+data:
+    readjust:
+        center:
+        - 0.0
+        - 0.0
+        - 0.0
+        scale: 1.0
+    root: /ghome/yyang/dataset/rene_dataset/savannah
+    train:
+        annotation: /ghome/yyang/PycharmProjects/neuralangelo/dataset_rene/savannah/train_transforms.json
+        batch_size: 1
+        image_size:
+        - 270
+        - 360
+        pseudo_label:
+            enabled: True
+            pt_file: /ghome/yyang/PycharmProjects/neuralangelo/logs/rene_savannah_a/output_lights/pseudo_label/pseudo_label_all.pt
+    type: projects.NeuralLumen.data
+    val:
+        annotation: /ghome/yyang/PycharmProjects/neuralangelo/dataset_rene/savannah/val_add_transforms.json
+        batch_size: 1
+        subset: 0
+        image_size:
+        - 270
+        - 360
+    bounding_type: "box"   # or "unit_sphere"
+    bounding_box_aabb:
+        - -0.66
+        - -0.516
+        - -0.18
+        - 0.66
+        - 0.42
+        - 0.3
+model:
+    type: projects.NeuralLumen.model
+    appear_embed:
+        enabled: false
+    object:
+        sdf:
+            encoding:
+                coarse2fine:
+                    enabled: False
+                    init_active_level: 8
+            mlp:
+                inside_out: false
+        rgb:
+            network_mode: 'rgb_r_s'
+            shading_dim: 1
+    light_visibility:
+        enabled: False
+#        type: render_light_visibility
+#        sample_tolerance: 8
+        type: sphere_tracing
+        visibility_bounding_type: sphere   # or "box"
+        visibility_sphere_radius: 0.2
+        gamma_correlation: 2.2   # gamma_correlation for shading
+#        visibility_bounding_box_aabb:
+#            - -0.3
+#            - -0.21
+#            - -0.18
+#            - 0.3
+#            - 0.21
+#            - 0.15
+    background:
+        enabled: False
+    render:
+        rand_rays: 2048
+    create_semi_sphere: false
+    use_pre_trained:
+        pt_filename: logs/rene_savannah_a/epoch_00307_iteration_000500000_checkpoint.pt
+
+optim:
+    partial_training:
+        - neural_rgb
