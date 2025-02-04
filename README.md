@@ -2,6 +2,7 @@
 The official implement of "MLI-NeRF: Multi-Light Intrinsic-Aware Neural Radiance Fields".
 
 Yixiong Yang, Shilin Hu, Haoyu Wu, Ramon Baldrich, Dimitris Samaras, Maria Vanrell
+
 International Conference on 3D Vision 2025
 
 ### | [Paper](https://arxiv.org/abs/2411.17235) |
