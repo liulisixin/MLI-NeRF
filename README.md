@@ -1,4 +1,4 @@
-# MLI-NeRF
+# MLI-NeRF (Updating)
 The official implement of "MLI-NeRF: Multi-Light Intrinsic-Aware Neural Radiance Fields".
 
 Yixiong Yang, Shilin Hu, Haoyu Wu, Ramon Baldrich, Dimitris Samaras, Maria Vanrell
