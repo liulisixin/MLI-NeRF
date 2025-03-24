@@ -7,6 +7,7 @@ International Conference on 3D Vision 2025
 
 ### | [Paper](https://arxiv.org/abs/2411.17235) |
 
+https://github.com/user-attachments/assets/0ae8436f-a2af-4c07-8a96-b504db106844
 
 ## Requirements
 We use [Neuralangelo](https://github.com/NVlabs/neuralangelo) as the baseline model. Therefore, we recommend following the installation instructions on the Neuralangelo website (without the need to install COLMAP).
