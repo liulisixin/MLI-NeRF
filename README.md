@@ -23,43 +23,38 @@ Download dataset from:
 https://github.com/iamNCJ/NRHints
 Modify the path in CONF_a and CONF_b.
 
-Train and test
-```angular2html
-CONF_a="NRHints_Pikachu_a"
-CONF_b="NRHints_Pikachu_b"
-python train.py --logdir=logs --config=projects/NeuralLumen/configs/${CONF_a}.yaml --show_pbar --single_gpu --wandb --wandb_name=angelo
-python test.py --config=projects/NeuralLumen/configs/${CONF_a}.yaml --show_pbar --single_gpu --inference_mode unpairlights_train --model.light_visibility.enabled=True --model.render.rand_rays_val=10000
-python projects/NeuralLumen/scripts/pseudo_label.py --workdir /ghome/yyang/PycharmProjects/neuralangelo/logs/${CONF_b}/output_unpairlights --setting unpair
-python train.py --logdir=logs --config=projects/NeuralLumen/configs/${CONF_b}.yaml --show_pbar --single_gpu --wandb --wandb_name=angelo
-python test.py --config=projects/NeuralLumen/configs/${CONF_b}.yaml --show_pbar --single_gpu --inference_mode image_test --anno transforms_test.json
-```
-Video results
+
+### Inference with Trained Model
+
+The trained model can be downloaded from [this link](https://example.com/model). A video can be generated with the following command:
+
 ```angular2html
 CONF_b="NRHints_Pikachu_b"
 python test.py --config=projects/NeuralLumen/configs/${CONF_b}.yaml --show_pbar --single_gpu --inference_mode video_train_0_67
 ```
 
+### Train and test
+```bash
+./run_real.sh
+```
 
 ## Run on the synthetic dataset
 One example from the synthetic dataset. (The datasets can be downloaded from (TBD))
 Modify the path in CONF_a and CONF_b.
 
-Train and test
-```angular2html
-CONF_a="syn_hotdog_a"
-CONF_b="syn_hotdog_b"
-python train.py --logdir=logs --config=projects/NeuralLumen/configs/${CONF_a}.yaml --show_pbar --single_gpu --wandb --wandb_name=angelo
-python test.py --config=projects/NeuralLumen/configs/${CONF_a}.yaml --show_pbar --single_gpu --inference_mode unpairlights_train --model.light_visibility.enabled=True --model.render.rand_rays_val=10000
-python projects/NeuralLumen/scripts/pseudo_label.py --workdir /ghome/yyang/PycharmProjects/neuralangelo/logs/${CONF_b}/output_unpairlights --setting unpair
-python train.py --logdir=logs --config=projects/NeuralLumen/configs/${CONF_b}.yaml --show_pbar --single_gpu --wandb --wandb_name=angelo
-python test.py --config=projects/NeuralLumen/configs/${CONF_b}.yaml --show_pbar --single_gpu --inference_mode image_test --anno transforms_test.json
-```
 
-Video results
+### Inference with Trained Model
+The trained model can be downloaded from the previous link. 
+
 ```angular2html
+CONF_b="syn_hotdog_b"
 python test.py --config=projects/NeuralLumen/configs/${CONF_b}.yaml --show_pbar --single_gpu --inference_mode video_train_0_67
 ```
 
+### Train and test
+```bash
+./run_synthetic.sh
+```
 
 ## Run on the ReNe dataset
 The ReNe dataset can be downloaded from [ReNe](https://github.com/eyecan-ai/rene).  
@@ -68,19 +63,16 @@ We provide a script, `projects/NeuralLumen/scripts/convert_rene_direct_to_json.p
 
 The generated JSON files are also included in `dataset_rene`.
 
-
+### Inference with Trained Model
+The trained model can be downloaded from the previous link. 
 ```angular2html
-CONF_a="rene_savannah_a"
 CONF_b="rene_savannah_b"
-python train.py --logdir=logs --config=projects/NeuralLumen/configs/${CONF_a}.yaml --show_pbar --single_gpu --wandb --wandb_name=angelo
-python test.py --config=projects/NeuralLumen/configs/${CONF_a}.yaml --show_pbar --single_gpu --inference_mode lights_train --model.light_visibility.enabled=True --model.render.rand_rays_val=10000
-python projects/NeuralLumen/scripts/pseudo_label.py --workdir /ghome/yyang/PycharmProjects/neuralangelo/logs/${CONF_a}/output_lights --setting pair
-python train.py --logdir=logs --config=projects/NeuralLumen/configs/${CONF_b}.yaml --show_pbar --single_gpu --wandb --wandb_name=angelo
-python test.py --config=projects/NeuralLumen/configs/${CONF_b}.yaml --show_pbar --single_gpu --inference_mode image_test --anno test_custom_transforms.json
-```
-Video output
-```angular2html
 python test.py --config=projects/NeuralLumen/configs/${CONF_b}.yaml --show_pbar --single_gpu --inference_mode video_train_0_67
+```
+
+### Train and test
+```bash
+./run_rene.sh
 ```
 
 # Citation

@@ -34,17 +34,17 @@ data:
         scale: 1.0
     root: /ghome/yyang/dataset/rene_dataset/savannah
     train:
-        annotation: /ghome/yyang/PycharmProjects/neuralangelo/dataset_rene/savannah/train_transforms.json
+        annotation: ./dataset_rene/savannah/train_transforms.json
         batch_size: 1
         image_size:
         - 270
         - 360
         pseudo_label:
             enabled: True
-            pt_file: /ghome/yyang/PycharmProjects/neuralangelo/logs/rene_savannah_a/output_lights/pseudo_label/pseudo_label_all.pt
+            pt_file: ./logs/rene_savannah_a/output_lights/pseudo_label/pseudo_label_all.pt
     type: projects.NeuralLumen.data
     val:
-        annotation: /ghome/yyang/PycharmProjects/neuralangelo/dataset_rene/savannah/val_add_transforms.json
+        annotation: ./dataset_rene/savannah/val_add_transforms.json
         batch_size: 1
         subset: 0
         image_size:

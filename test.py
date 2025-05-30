@@ -87,6 +87,8 @@ def main():
     init_cudnn(cfg.cudnn.deterministic, cfg.cudnn.benchmark)
 
     # Initialize data loaders and models.
+    if hasattr(cfg.model, "use_pre_trained"):
+        delattr(cfg.model, "use_pre_trained")
     trainer = get_trainer(cfg, is_inference=True, seed=args.seed)
     trainer.checkpointer.load(args.checkpoint, args.resume, load_sch=False, load_opt=False)
 
@@ -95,7 +97,9 @@ def main():
     split_mode = inference_mode[1]
 
     cfg.data.preload = True
-    cfg.data.train.pseudo_label.enabled = False
+    if hasattr(cfg.data.train, "pseudo_label") and hasattr(cfg.data.train.pseudo_label, "enabled"):
+        cfg.data.train.pseudo_label.enabled = False
+
     if split_mode == 'train':
         trainer.set_data_loader(cfg, split='train')
         dataloader = trainer.train_data_loader

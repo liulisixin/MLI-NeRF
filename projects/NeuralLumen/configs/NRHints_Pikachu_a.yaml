@@ -60,5 +60,5 @@ model:
         white: False
     render:
         rand_rays: 2048
-        rand_rays_val: 4096
+        rand_rays_val: 20000
     create_semi_sphere: false
