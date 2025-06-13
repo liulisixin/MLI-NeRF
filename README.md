@@ -16,6 +16,26 @@ Tips:
 1. The code requires tiny-cuda-nn, which needs the CUDA version of PyTorch to be consistent with the CUDA version installed on your system.
 2. Use pip to install pymcubes==0.1.4.
 
+
+## Run on the synthetic dataset
+One example from the synthetic dataset. (The datasets can be downloaded from [this link](https://cvcuab-my.sharepoint.com/:u:/g/personal/yixiong_cvc_uab_cat/EahjRxamobJCuMlRVbjxB3QBA2WBp-e1LO3jpUPtpQodWg?e=gkXwF2))
+Modify the path in CONF_a and CONF_b.
+
+
+### Inference with Trained Model
+The trained model can be downloaded from the previous link. 
+
+```angular2html
+CONF_b="syn_hotdog_b"
+python test.py --config=projects/NeuralLumen/configs/${CONF_b}.yaml --show_pbar --single_gpu --inference_mode video_train_0_67
+```
+
+### Train and test
+```bash
+./run_synthetic.sh
+```
+
+
 ## Run on the real object dataset
 Let's use one example from the real object dataset.
 
@@ -36,24 +56,6 @@ python test.py --config=projects/NeuralLumen/configs/${CONF_b}.yaml --show_pbar 
 ### Train and test
 ```bash
 ./run_real.sh
-```
-
-## Run on the synthetic dataset
-One example from the synthetic dataset. (The datasets can be downloaded from [this link](https://cvcuab-my.sharepoint.com/:u:/g/personal/yixiong_cvc_uab_cat/EahjRxamobJCuMlRVbjxB3QBA2WBp-e1LO3jpUPtpQodWg?e=gkXwF2))
-Modify the path in CONF_a and CONF_b.
-
-
-### Inference with Trained Model
-The trained model can be downloaded from the previous link. 
-
-```angular2html
-CONF_b="syn_hotdog_b"
-python test.py --config=projects/NeuralLumen/configs/${CONF_b}.yaml --show_pbar --single_gpu --inference_mode video_train_0_67
-```
-
-### Train and test
-```bash
-./run_synthetic.sh
 ```
 
 ## Run on the ReNe dataset
