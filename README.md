@@ -23,7 +23,7 @@ Modify the path in CONF_a and CONF_b.
 
 
 ### Inference with Trained Model
-The trained model can be downloaded from the previous link. 
+The trained model can be downloaded from [this link](https://cvcuab-my.sharepoint.com/:u:/g/personal/yixiong_cvc_uab_cat/EWc87P7VaydJuA7HV9C04HgBKvQJ80dB6kVUyuQw15w9nA?e=RbvqEE). A video can be generated with the following command:
 
 ```angular2html
 CONF_b="syn_hotdog_b"
@@ -46,7 +46,7 @@ Modify the path in CONF_a and CONF_b.
 
 ### Inference with Trained Model
 
-The trained model can be downloaded from [this link](https://cvcuab-my.sharepoint.com/:u:/g/personal/yixiong_cvc_uab_cat/EWc87P7VaydJuA7HV9C04HgBKvQJ80dB6kVUyuQw15w9nA?e=RbvqEE). A video can be generated with the following command:
+The trained model can be downloaded from the previous link. 
 
 ```angular2html
 CONF_b="NRHints_Pikachu_b"
