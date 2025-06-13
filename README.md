@@ -1,4 +1,4 @@
-# MLI-NeRF (Updating)
+# MLI-NeRF
 The official implement of "MLI-NeRF: Multi-Light Intrinsic-Aware Neural Radiance Fields".
 
 Yixiong Yang, Shilin Hu, Haoyu Wu, Ramon Baldrich, Dimitris Samaras, Maria Vanrell
@@ -26,7 +26,7 @@ Modify the path in CONF_a and CONF_b.
 
 ### Inference with Trained Model
 
-The trained model can be downloaded from [this link](https://example.com/model). A video can be generated with the following command:
+The trained model can be downloaded from [this link](https://cvcuab-my.sharepoint.com/:u:/g/personal/yixiong_cvc_uab_cat/EWc87P7VaydJuA7HV9C04HgBKvQJ80dB6kVUyuQw15w9nA?e=RbvqEE). A video can be generated with the following command:
 
 ```angular2html
 CONF_b="NRHints_Pikachu_b"
@@ -39,7 +39,7 @@ python test.py --config=projects/NeuralLumen/configs/${CONF_b}.yaml --show_pbar 
 ```
 
 ## Run on the synthetic dataset
-One example from the synthetic dataset. (The datasets can be downloaded from (TBD))
+One example from the synthetic dataset. (The datasets can be downloaded from [this link](https://cvcuab-my.sharepoint.com/:u:/g/personal/yixiong_cvc_uab_cat/EahjRxamobJCuMlRVbjxB3QBA2WBp-e1LO3jpUPtpQodWg?e=gkXwF2))
 Modify the path in CONF_a and CONF_b.
 
 
