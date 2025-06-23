@@ -32,7 +32,7 @@ data:
         - 0.0
         - 0.0
         scale: 1.0
-    root: /ghome/yyang/dataset/rene_dataset/savannah
+    root: {DATASET_FOLDER}/rene_dataset/savannah
     train:
         annotation: ./dataset_rene/savannah/train_transforms.json
         batch_size: 1
@@ -92,6 +92,7 @@ model:
         enabled: False
     render:
         rand_rays: 2048
+        rand_rays_val: 20000
     create_semi_sphere: false
     use_pre_trained:
         pt_filename: logs/rene_savannah_a/epoch_00307_iteration_000500000_checkpoint.pt

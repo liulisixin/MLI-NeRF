@@ -17,9 +17,9 @@ data:
         - 0.0
         - 0.0
         scale: 1.0
-    root: /ghome/yyang/dataset/NRHints/Pikachu
+    root: {DATASET_FOLDER}/NRHints/Pikachu
     train:
-        annotation: /ghome/yyang/dataset/NRHints/Pikachu/transforms_train.json
+        annotation: {DATASET_FOLDER}/NRHints/Pikachu/transforms_train.json
         batch_size: 1
         image_size:
         - 512
@@ -30,7 +30,7 @@ data:
     white_background: False
     preload: True
     val:
-        annotation: /ghome/yyang/dataset/NRHints/Pikachu/transforms_val.json
+        annotation: {DATASET_FOLDER}/NRHints/Pikachu/transforms_val.json
         batch_size: 1
         subset: 3
         image_size:

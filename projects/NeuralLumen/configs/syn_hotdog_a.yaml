@@ -8,9 +8,9 @@ data:
         - 0.0
         - 0.0
         scale: 1.0
-    root: /ghome/yyang/dataset/MLI_syn_dataset/hotdog_intrinsic
+    root: {DATASET_FOLDER}/MLI_syn_dataset/hotdog_intrinsic
     train:
-        annotation: /ghome/yyang/dataset/MLI_syn_dataset/hotdog_intrinsic/transforms_train.json
+        annotation: {DATASET_FOLDER}/MLI_syn_dataset/hotdog_intrinsic/transforms_train.json
         batch_size: 1
         image_size:
         - 512
@@ -20,7 +20,7 @@ data:
     white_background: True
     preload: True
     val:
-        annotation: /ghome/yyang/dataset/MLI_syn_dataset/hotdog_intrinsic/transforms_val.json
+        annotation: {DATASET_FOLDER}/MLI_syn_dataset/hotdog_intrinsic/transforms_val.json
         batch_size: 1
         subset: 8
         image_size:
@@ -50,5 +50,5 @@ model:
         white: True
     render:
         rand_rays: 2048
-        rand_rays_val: 60000
+        rand_rays_val: 20000
     create_semi_sphere: false

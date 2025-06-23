@@ -32,9 +32,9 @@ data:
         - 0.0
         - 0.0
         scale: 1.0
-    root: /ghome/yyang/dataset/MLI_syn_dataset/hotdog_intrinsic
+    root: {DATASET_FOLDER}/MLI_syn_dataset/hotdog_intrinsic
     train:
-        annotation: /ghome/yyang/dataset/MLI_syn_dataset/hotdog_intrinsic/transforms_train.json
+        annotation: {DATASET_FOLDER}/MLI_syn_dataset/hotdog_intrinsic/transforms_train.json
         batch_size: 1
         image_size:
         - 512
@@ -42,12 +42,12 @@ data:
         load_iid: False
         pseudo_label:
             enabled: True
-            pt_file: /ghome/yyang/PycharmProjects/neuralangelo/logs/syn_hotdog_a/output_unpairlights_pseudo_label/pseudo_label_all.pt
+            pt_file: ./logs/syn_hotdog_a/output_unpairlights_pseudo_label/pseudo_label_all.pt
     type: projects.NeuralLumen.data_blender
     white_background: True
     preload: True
     val:
-        annotation: /ghome/yyang/dataset/MLI_syn_dataset/hotdog_intrinsic/transforms_val.json
+        annotation: {DATASET_FOLDER}/MLI_syn_dataset/hotdog_intrinsic/transforms_val.json
         batch_size: 1
         subset: 3
         image_size:
@@ -84,7 +84,7 @@ model:
         rand_rays_val: 20000
     create_semi_sphere: false
     use_pre_trained:
-        pt_filename: logs/syn_hotdog_a/epoch_01000_iteration_000500000_checkpoint.pt
+        pt_filename: ./logs/syn_hotdog_a/epoch_00200_iteration_000100000_checkpoint.pt
 
 optim:
     partial_training:
