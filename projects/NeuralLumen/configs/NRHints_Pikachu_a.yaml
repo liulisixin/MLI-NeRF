@@ -1,13 +1,5 @@
 _parent_: projects/neuralangelo/configs/base.yaml
 
-max_iter: 500000
-
-wandb_scalar_iter: 100
-wandb_image_iter: 10000
-validation_iter: 10000
-checkpoint:
-    save_iter: 100000
-
 trainer:
     type: projects.NeuralLumen.trainer
 data:

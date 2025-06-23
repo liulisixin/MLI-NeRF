@@ -84,7 +84,7 @@ model:
         rand_rays_val: 20000
     create_semi_sphere: false
     use_pre_trained:
-        pt_filename: ./logs/syn_hotdog_a/epoch_00200_iteration_000100000_checkpoint.pt
+        pt_filename: ./logs/syn_hotdog_a/latest_checkpoint.txt
 
 optim:
     partial_training:

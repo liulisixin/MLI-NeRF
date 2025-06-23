@@ -95,7 +95,7 @@ model:
         rand_rays_val: 20000
     create_semi_sphere: false
     use_pre_trained:
-        pt_filename: logs/rene_savannah_a/epoch_00307_iteration_000500000_checkpoint.pt
+        pt_filename: logs/rene_savannah_a/latest_checkpoint.txt
 
 optim:
     partial_training:
